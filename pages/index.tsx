@@ -10,11 +10,11 @@ import Dewpoint from "../components/tables/Dewpoint";
 import Elevation from "../components/tables/Elevation";
 import Temperature from "../components/tables/Temperature";
 import Humidity from "../components/tables/Humidity";
-import { AirportInfo, BarometerData, Cloud, DewpointData, ElevationData, HumidityData } from '../types/MetarTypes'
+import Visibility from "../components/tables/Visibility";
+import Wind from "../components/tables/Wind";
+import { AirportInfo, BarometerData, Cloud, DewpointData, ElevationData, HumidityData, VisibilityData, WindData } from '../types/MetarTypes'
 
 import data from '../data.json'
-
-
 
 export default function Home() {
 
@@ -54,6 +54,16 @@ export default function Home() {
     percent: data.humidity.percent
   }
 
+  const VisData: VisibilityData = {
+    meters: data.visibility.meters,
+    miles: data.visibility.miles
+  }
+
+  const WinData: WindData = {
+    degrees: data.wind.degrees,
+    speed: data.wind.speed_kts
+  }
+
 
 
   return (
@@ -91,6 +101,15 @@ export default function Home() {
           </Col>
           <Col sm={12} lg={6} className="p-3 mb-3">
             <Humidity {...HumidData}/>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col sm={12} lg={6} className="p-3 mb-3">
+            <Visibility {...VisData}/>
+          </Col>
+          <Col sm={12} lg={6} className="p-3 mb-3">
+            <Wind {...WinData}/>
           </Col>
         </Row>
       </Container>

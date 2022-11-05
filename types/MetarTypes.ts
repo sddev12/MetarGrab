@@ -35,3 +35,13 @@ export type ElevationData = {
 export type HumidityData = {
     percent: number
 }
+
+export type VisibilityData = {
+    meters: string,
+    miles: string
+}
+
+export type WindData = {
+    degrees: number,
+    speed: number
+}
