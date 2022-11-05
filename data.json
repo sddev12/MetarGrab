@@ -1,0 +1,82 @@
+{
+    "barometer": {
+      "hg": 29.94,
+      "hpa": 1014,
+      "kpa": 101.39,
+      "mb": 1013.92
+    },
+    "ceiling": {
+      "base_feet_agl": 1800,
+      "base_meters_agl": 549,
+      "code": "BKN",
+      "feet": 1800,
+      "meters": 549,
+      "text": "Broken"
+    },
+    "clouds": [
+      {
+        "base_feet_agl": 1800,
+        "base_meters_agl": 549,
+        "code": "BKN",
+        "feet": 1800,
+        "meters": 549,
+        "text": "Broken"
+      },
+      {
+        "base_feet_agl": 4600,
+        "base_meters_agl": 1402,
+        "code": "BKN",
+        "feet": 4600,
+        "meters": 1402,
+        "text": "Broken"
+      }
+    ],
+    "dewpoint": {
+      "celsius": 5,
+      "fahrenheit": 41
+    },
+    "elevation": {
+      "feet": 256,
+      "meters": 78
+    },
+    "flight_category": "MVFR",
+    "humidity": {
+      "percent": 82
+    },
+    "icao": "EGCC",
+    "observed": "2022-11-04T20:20Z",
+    "raw_text": "EGCC 042020Z AUTO 21005KT 9999 BKN018 BKN046 08/05 Q1014 NOSIG",
+    "station": {
+      "geometry": {
+        "coordinates": [
+          -2.279521,
+          53.349375
+        ],
+        "type": "Point"
+      },
+      "location": "Manchester, GB",
+      "name": "Manchester Airport",
+      "type": "Airport"
+    },
+    "temperature": {
+      "celsius": 8,
+      "fahrenheit": 46
+    },
+    "visibility": {
+      "meters": "10,000+",
+      "meters_float": 9999,
+      "miles": "Greater than 6",
+      "miles_float": 6.21
+    },
+    "wind": {
+      "degrees": 210,
+      "speed_kph": 9,
+      "speed_kts": 5,
+      "speed_mph": 6,
+      "speed_mps": 3
+    },
+    "windchill": {
+      "celsius": 6,
+      "fahrenheit": 43
+    }
+  }

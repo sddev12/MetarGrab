@@ -1,0 +1,9 @@
+.icaoInput {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+}
+.icaoInput:focus {
+    border-color: black;
+    box-shadow: none;
+}
