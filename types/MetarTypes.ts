@@ -23,7 +23,7 @@ export type Cloud = {
 }
 
 export type DewpointData = {
-    celsuis: number,
+    celsius: number,
     fahrenheit: number
 }
 
@@ -36,12 +36,49 @@ export type HumidityData = {
     percent: number
 }
 
+export type Coordinates = number[]
+
+export type Geometry = {
+    coordinates: Coordinates,
+    type: string
+}
+
+export type Station = {
+    geometry: Geometry,
+    location: string,
+    name: string,
+    type: string
+}
+
 export type VisibilityData = {
     meters: string,
-    miles: string
+    metars_float: number,
+    miles: string,
+    miles_float: number
 }
 
 export type WindData = {
     degrees: number,
-    speed: number
+    speed_kph: number,
+    speed_kts: number,
+    speed_mph: number,
+    speed_mps: string
+}
+
+export type MetarData = {
+    barometer: BarometerData,
+    ceiling: Cloud,
+    clouds: Cloud[],
+    dewpoint: DewpointData,
+    elevation: ElevationData,
+    flight_category: string,
+    humidity: HumidityData,
+    icao: string,
+    observed: string,
+    raw_text: string,
+    station: Station,
+    temperature: DewpointData,
+    visibility: VisibilityData,
+    wind: WindData,
+    windchill: DewpointData
 }

@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import axios from "axios";
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
@@ -12,106 +14,88 @@ import Temperature from "../components/tables/Temperature";
 import Humidity from "../components/tables/Humidity";
 import Visibility from "../components/tables/Visibility";
 import Wind from "../components/tables/Wind";
-import { AirportInfo, BarometerData, Cloud, DewpointData, ElevationData, HumidityData, VisibilityData, WindData } from '../types/MetarTypes'
+import { MetarData } from "../types/MetarTypes";
+import { createNoSubstitutionTemplateLiteral } from "typescript";
 
-import data from '../data.json'
+// import data from "../data.json";
 
 export default function Home() {
+  const [icaoInput, setIcaoInput] = useState("");
+  const [data, setData] = useState<MetarData | null>(null);
 
-  const ApData: AirportInfo = {
-    icao: data.icao,
-    observed: data.observed,
-    rawText: data.raw_text,
-    name: data.station.name,
-    location: data.station.location
+  function icaoHandler(event: any) {
+    event.preventDefault();
+
+    axios
+      .post("/api/getmetar", {
+        icao: icaoInput,
+      })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+      console.log(data)
   }
-
-  const BaroData: BarometerData = {
-    hg: data.barometer.hg,
-    hpa: data.barometer.hpa,
-    kpa: data.barometer.kpa,
-    mb: data.barometer.mb
-  }
-
-  const CloudsData: Cloud[] = data.clouds
-
-  const DewData: DewpointData = {
-    celsuis: data.dewpoint.celsius,
-    fahrenheit: data.dewpoint.fahrenheit
-  }
-
-  const ElevData: ElevationData = {
-    feet: data.elevation.feet,
-    meters: data.elevation.meters
-  }
-
-  const TempData: DewpointData = {
-    celsuis: data.temperature.celsius,
-    fahrenheit: data.temperature.fahrenheit
-  }
-
-  const HumidData: HumidityData = {
-    percent: data.humidity.percent
-  }
-
-  const VisData: VisibilityData = {
-    meters: data.visibility.meters,
-    miles: data.visibility.miles
-  }
-
-  const WinData: WindData = {
-    degrees: data.wind.degrees,
-    speed: data.wind.speed_kts
-  }
-
-
 
   return (
     <>
       <NavBar />
       <Container className="pt-4">
         <Row>
-          <h4>Enter airport ICAO</h4>
-          <IcaoInput />
+          <h4></h4>
+          <IcaoInput
+            clickHandler={icaoHandler}
+            label={"Submit"}
+            setIcaoInput={setIcaoInput}
+          />
         </Row>
 
-        <ApInfo {...ApData}/>
+        {data ? (
+          <div>
+            <ApInfo {...data} />
 
-        <Row>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Barometer {...BaroData}/>
-          </Col>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Clouds {...CloudsData}/>
-          </Col>
-        </Row>
+            <Row>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Barometer {...data} />
+              </Col>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Clouds {...data} />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Dewpoint {...DewData}/>
-          </Col>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Elevation {...ElevData}/>
-          </Col>
-        </Row>
+            <Row>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Dewpoint {...data} />
+              </Col>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Elevation {...data} />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Temperature {...TempData}/>
-          </Col>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Humidity {...HumidData}/>
-          </Col>
-        </Row>
+            <Row>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Temperature {...data} />
+              </Col>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Humidity {...data} />
+              </Col>
+            </Row>
 
-        <Row>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Visibility {...VisData}/>
-          </Col>
-          <Col sm={12} lg={6} className="p-3 mb-3">
-            <Wind {...WinData}/>
-          </Col>
-        </Row>
+            <Row>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Visibility {...data} />
+              </Col>
+              <Col sm={12} lg={6} className="p-3 mb-3">
+                <Wind {...data} />
+              </Col>
+            </Row>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </Container>
     </>
   );

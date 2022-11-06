@@ -1,7 +1,7 @@
-import { HumidityData } from "../../types/MetarTypes";
+import { MetarData } from "../../types/MetarTypes";
 import { Table } from "react-bootstrap";
 
-export default function Humidity(props: HumidityData) {
+export default function Humidity(props: MetarData) {
   return (
     <>
       <h4>Humidity</h4>
@@ -9,7 +9,7 @@ export default function Humidity(props: HumidityData) {
         <tbody>
           <tr>
             <td>Percent</td>
-            <td>{props.percent}</td>
+            <td>{props.humidity.percent}</td>
           </tr>
         </tbody>
       </Table>

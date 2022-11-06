@@ -1,7 +1,7 @@
-import { VisibilityData } from "../../types/MetarTypes";
+import { MetarData } from "../../types/MetarTypes";
 import { Table } from "react-bootstrap";
 
-export default function Visibility(props: VisibilityData) {
+export default function Visibility(props: MetarData) {
   return (
     <>
       <h4>Visibility</h4>
@@ -9,11 +9,11 @@ export default function Visibility(props: VisibilityData) {
         <tbody>
           <tr>
             <td>Meters</td>
-            <td>{props.meters}</td>
+            <td>{props.visibility.meters}</td>
           </tr>
           <tr>
             <td>Miles</td>
-            <td>{props.miles}</td>
+            <td>{props.visibility.miles}</td>
           </tr>
         </tbody>
       </Table>

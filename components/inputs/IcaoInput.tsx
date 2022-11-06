@@ -5,8 +5,7 @@ import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import IcaoButton from "../buttons/IcaoButton";
 
-export default function IcaoInput() {
-  const [icaoInput, setIcaoInput] = useState("");
+export default function IcaoInput({clickHandler, label, setIcaoInput}: any) {
 
   function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setIcaoInput(e.target.value)
@@ -25,7 +24,10 @@ export default function IcaoInput() {
             ></Form.Control>
           </Col>
           <Col>
-            <IcaoButton label="Search" />
+            <IcaoButton
+              clickHandler={clickHandler}
+              label={label}
+            />
           </Col>
         </Row>
       </div>

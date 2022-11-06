@@ -1,7 +1,7 @@
-import { BarometerData } from "../../types/MetarTypes";
+import { MetarData } from "../../types/MetarTypes";
 import { Table } from "react-bootstrap";
 
-export default function Barometer(props: BarometerData) {
+export default function Barometer(props: MetarData) {
   return (
     <>
       <h4>Barometer</h4>
@@ -9,19 +9,19 @@ export default function Barometer(props: BarometerData) {
         <tbody>
           <tr>
             <td>hg</td>
-            <td>29.94</td>
+            <td>{props.barometer.hg}</td>
           </tr>
           <tr>
             <td>hpa</td>
-            <td>1014</td>
+            <td>{props.barometer.hpa}</td>
           </tr>
           <tr>
             <td>kpa</td>
-            <td>101.39</td>
+            <td>{props.barometer.kpa}</td>
           </tr>
           <tr>
             <td>mb</td>
-            <td>1013.92</td>
+            <td>{props.barometer.mb}</td>
           </tr>
         </tbody>
       </Table>

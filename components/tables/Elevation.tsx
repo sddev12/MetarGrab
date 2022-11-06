@@ -1,7 +1,7 @@
-import { ElevationData } from "../../types/MetarTypes";
+import { MetarData } from "../../types/MetarTypes";
 import { Table } from "react-bootstrap";
 
-export default function Elevation(props: ElevationData) {
+export default function Elevation(props: MetarData) {
   return (
     <>
       <h4>Elevation</h4>
@@ -9,11 +9,11 @@ export default function Elevation(props: ElevationData) {
         <tbody>
           <tr>
             <td>Feet</td>
-            <td>{props.feet}</td>
+            <td>{props.elevation.feet}</td>
           </tr>
           <tr>
             <td>Meters</td>
-            <td>{props.meters}</td>
+            <td>{props.elevation.meters}</td>
           </tr>
         </tbody>
       </Table>

@@ -1,7 +1,7 @@
-import { DewpointData } from "../../types/MetarTypes";
+import { MetarData } from "../../types/MetarTypes";
 import { Table } from "react-bootstrap";
 
-export default function Temperature(props: DewpointData) {
+export default function Temperature(props: MetarData) {
   return (
     <>
       <h4>Temperature</h4>
@@ -9,11 +9,11 @@ export default function Temperature(props: DewpointData) {
         <tbody>
           <tr>
             <td>Celsius</td>
-            <td>{props.celsuis}</td>
+            <td>{props.temperature.celsius}</td>
           </tr>
           <tr>
             <td>Fahrenheit</td>
-            <td>{props.fahrenheit}</td>
+            <td>{props.temperature.fahrenheit}</td>
           </tr>
         </tbody>
       </Table>
