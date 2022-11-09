@@ -1,4 +1,10 @@
-resource "azurerm_resource_goup" "metargrab-dev" {
-  name = "metargrab-dev"
-  location = "Uk South"
+terraform {
+  required_version = "1.2.9"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.30.0"
+    }
+  }
 }
