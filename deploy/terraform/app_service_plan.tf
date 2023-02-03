@@ -4,4 +4,8 @@ resource "azurerm_service_plan" "metargrab_serviceplan" {
   location            = azurerm_resource_goup.metargrab.location
   os_type             = "Linux"
   sku_name            = "B1"
+  
+  application_stack {
+    node_version = "18-lts"
+  }
 }
