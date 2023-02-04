@@ -16,4 +16,4 @@ stages:
             containerRegistry: 'metargrab container registry connection'
             repository: 'metargrab'
             command: 'buildAndPush'
-            Dockerfile: '**/Dockerfile'
+            Dockerfile: './Dockerfile'
