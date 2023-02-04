@@ -9,4 +9,11 @@ pool:
 stages:
   - stage: ci
     jobs:
-      - job: 
+      - job: DockerBuildAndPush
+        steps:
+        - task: Docker@2
+          inputs:
+            containerRegistry: 'metargrab container registry connection'
+            repository: 'metargrab'
+            command: 'buildAndPush'
+            Dockerfile: '**/Dockerfile'
