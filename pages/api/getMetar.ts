@@ -25,7 +25,6 @@ export default function handler(
     const data = axios.request(reqConfig)
     .then((response) => {
       res.status(200).json(response.data.data[0])
-      console.log(response)
     })
     .catch((error) => {
       console.log(error)

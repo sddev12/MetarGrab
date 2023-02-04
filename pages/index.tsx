@@ -15,7 +15,6 @@ import Humidity from "../components/tables/Humidity";
 import Visibility from "../components/tables/Visibility";
 import Wind from "../components/tables/Wind";
 import { MetarData } from "../types/MetarTypes";
-import { createNoSubstitutionTemplateLiteral } from "typescript";
 
 // import data from "../data.json";
 
